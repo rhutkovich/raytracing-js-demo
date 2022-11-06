@@ -22,9 +22,9 @@ let angle = 0;
 setInterval(() => {
   const context = canvas.getContext('2d');
   const buffer = context.createImageData(HEIGHT, WIDTH);
-  render(buffer, spheres, new Vector3d(2*Math.sin(angle), 0, -2+2*Math.cos(angle)));
+  render(buffer, spheres, new Vector3d(Math.sin(angle), 0, 0.5 * Math.cos(angle)));
   context.putImageData(buffer, 0, 0);
-  angle++;
+  angle = ++angle % (2 * Math.PI);
 }, 50);
 
 function setPixel(buffer, x, y, color) {
@@ -48,6 +48,7 @@ function render(frameBuffer, spheres, start) {
       const yy = (1 - 2 * ((y + 0.5) * invHeight)) * angle;
       const rayDirection = new Vector3d(xx, yy, -1);
       rayDirection.normalize();
+
       const pixColor = trace(start, rayDirection, spheres, 0);
 
       setPixel(frameBuffer, x, y, pixColor);

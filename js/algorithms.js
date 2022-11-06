@@ -1,4 +1,3 @@
-//https://www.scratchapixel.com/code.php?id=3&origin=/lessons/3d-basic-rendering/introduction-to-ray-tracing
 import Color from './color.js';
 import FloatValue from './float-value.js';
 

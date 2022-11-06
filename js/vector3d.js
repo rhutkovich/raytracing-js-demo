@@ -1,5 +1,7 @@
 class Vector3d {
-  x; y; z;
+  x;
+  y;
+  z;
 
   constructor(x, y, z) {
     this.x = x;
@@ -61,4 +63,5 @@ class Vector3d {
     return this;
   }
 }
+
 export default Vector3d;
